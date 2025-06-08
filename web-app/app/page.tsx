@@ -62,15 +62,29 @@ export default function Home() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
         {projects.map((project) => (
-          <Link 
+          <div 
             key={project.file}
-            href={`/projects/${encodeURIComponent(project.file)}`}
             className="group p-6 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors flex flex-col h-full"
           >
             <h2 className="text-xl font-semibold mb-2">{project.name}</h2>
             <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
-            <div className="text-blue-600 group-hover:underline mt-auto">View implementation →</div>
-          </Link>
+            <div className="flex justify-between mt-auto">
+              <Link 
+                href={`/projects/${encodeURIComponent(project.file)}`}
+                className="text-blue-600 hover:underline"
+              >
+                View implementation →
+              </Link>
+              <a 
+                href={`/code/${project.file}`} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-700 hover:underline"
+              >
+                Raw File
+              </a>
+            </div>
+          </div>
         ))}
       </div>
     </main>

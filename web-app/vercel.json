@@ -8,12 +8,6 @@
       "destination": "/projects/:filename"
     }
   ],
-  "routes": [
-    {
-      "src": "/projects/(.*)",
-      "dest": "/projects/[filename]"
-    }
-  ],
   "builds": [
     {
       "src": "package.json",

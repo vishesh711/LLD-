@@ -33,9 +33,8 @@ const nextConfig = {
     serverComponentsExternalPackages: ['fs', 'path', 'fs/promises']
   },
 
-  // Clean URLs - consistent with Vercel config
+  // URL configuration
   trailingSlash: false,
-  cleanUrls: true,
   
   // Handle dynamic routes
   async rewrites() {
