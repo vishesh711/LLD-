@@ -1,15 +1,20 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import type { Prism as PrismType } from 'react-syntax-highlighter';
+import type { CSSProperties } from 'react';
 
 interface CodeViewerProps {
   code: string;
   language?: string;
 }
 
+type SyntaxHighlighterType = typeof PrismType;
+type StyleType = { [key: string]: CSSProperties };
+
 export default function CodeViewer({ code, language = 'python' }: CodeViewerProps) {
-  const [SyntaxHighlighter, setSyntaxHighlighter] = useState<any>(null);
-  const [theme, setTheme] = useState<any>(null);
+  const [SyntaxHighlighter, setSyntaxHighlighter] = useState<SyntaxHighlighterType | null>(null);
+  const [theme, setTheme] = useState<StyleType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
