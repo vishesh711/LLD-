@@ -1,0 +1,5 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+
+Sitemap: https://your-deployed-url.vercel.app/sitemap.xml 
