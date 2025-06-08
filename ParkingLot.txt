@@ -1,0 +1,42 @@
+# ParkingLot.txt - System Design Explanation
+
+## Overview
+The ParkingLot.py file implements a parking lot management system, one of the most frequently asked LLD (Low-Level Design) interview questions. This design demonstrates class relationships, state management, and resource allocation - all fundamental aspects of object-oriented design.
+
+## Key Components
+
+1. **ParkingSpot Class**:
+   - Represents an individual parking spot with a unique ID and type
+   - Manages the state of a spot (empty or occupied)
+   - Provides methods to assign and remove vehicles
+
+2. **Vehicle Class**:
+   - Represents a vehicle with license plate and type information
+   - Encapsulates vehicle details that are relevant to parking
+
+3. **ParkingLot Class**:
+   - Central manager that orchestrates the entire system
+   - Maintains a collection of parking spots
+   - Handles vehicle entry and exit
+   - Implements spot allocation strategy based on vehicle type
+   - Tracks capacity and availability
+
+## Design Patterns and Principles Used
+- **Single Responsibility Principle**: Each class has a clear and specific purpose
+- **Factory Method**: The ParkingLot creates parking spots with different types
+- **Strategy Pattern**: The spot allocation strategy could be extended to support different algorithms
+
+## Why This Appears in LLD Interviews
+- Tests your ability to model real-world entities and their relationships
+- Evaluates your approach to resource allocation problems
+- Assesses your understanding of state management
+- Examines your ability to design extensible systems
+- Verifies your grasp of object-oriented principles
+
+## Interview Tips
+- Be prepared to discuss how you would extend the system for pricing models
+- Consider how you would handle reserved parking or time-limited spots
+- Discuss optimization strategies for spot allocation (closest spot, etc.)
+- Be ready to explain how you would scale this system for multiple parking lots
+- Consider how you would implement monitoring and analytics features
+- Discuss how you would handle edge cases (full lot, vehicle type mismatch, etc.) 

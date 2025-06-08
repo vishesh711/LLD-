@@ -1,0 +1,48 @@
+# Blackjack_Game.txt - Card Game Design Explanation
+
+## Overview
+The Blackjack_Game.py file implements a simplified version of the Blackjack card game. This is an excellent LLD (Low-Level Design) interview problem that tests your ability to model a system with complex rules, state management, and user interaction.
+
+## Key Components
+
+1. **Card Class**:
+   - Represents a playing card with rank and suit
+   - Calculates the card's value based on Blackjack rules
+   - Handles special cases like Aces (which can be 1 or 11)
+
+2. **Deck Class**:
+   - Creates and manages a standard 52-card deck
+   - Implements shuffling using Python's random module
+   - Provides a deal method to distribute cards
+
+3. **Player Class**:
+   - Represents a game participant (player or dealer)
+   - Manages the player's hand of cards
+   - Calculates the score following Blackjack rules
+   - Handles the Ace value adjustment (11 → 1) when needed
+
+4. **Blackjack Class**:
+   - Orchestrates the game flow
+   - Manages player and dealer turns
+   - Implements game rules and winning conditions
+   - Handles user interaction through the console
+
+## Design Patterns and Principles Used
+- **Single Responsibility Principle**: Each class has a specific purpose
+- **Object Composition**: Players have cards, game has players
+- **State Pattern**: The game progresses through different states (dealing, player turn, dealer turn, evaluation)
+
+## Why This Appears in LLD Interviews
+- Tests your ability to model a system with complex rules
+- Evaluates your approach to state management
+- Assesses your understanding of object-oriented design
+- Examines how you handle user interaction and input validation
+- Challenges you to implement game logic with multiple edge cases
+
+## Interview Tips
+- Be prepared to discuss how you would extend the game for multiple players
+- Consider how you would implement betting functionality
+- Discuss how you would add more advanced Blackjack rules (split, double down, insurance)
+- Be ready to explain how you would improve the user interface
+- Consider how you would handle persistence (saving game state)
+- Explain how you would implement card counting strategies for AI players 

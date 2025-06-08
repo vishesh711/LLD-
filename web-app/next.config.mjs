@@ -15,8 +15,23 @@ const nextConfig = {
       path: false
     };
     
+    // Ensure server-only modules are not included in the client bundle
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        'fs/promises': false
+      };
+    }
+    
     return config;
   },
+  
+  // Experimental features
+  experimental: {
+    serverComponentsExternalPackages: ['fs', 'path', 'fs/promises']
+  }
 };
 
 export default nextConfig; 

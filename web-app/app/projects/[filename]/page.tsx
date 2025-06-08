@@ -2,10 +2,26 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import CodeViewer from '../../components/CodeViewer';
+import fs from 'fs/promises';
+import path from 'path';
 
-// Import the JSON file with a type assertion
-import codeFilesData from '../../data/code-files.json' assert { type: 'json' };
-const codeFiles = codeFilesData as Record<string, string>;
+// Define interface for code files
+interface CodeFiles {
+  [key: string]: string;
+}
+
+// Function to get code files data
+async function getCodeFiles(): Promise<CodeFiles> {
+  try {
+    // In development, read from JSON file if it exists
+    const filePath = path.join(process.cwd(), 'app', 'data', 'code-files.json');
+    const fileContents = await fs.readFile(filePath, 'utf8');
+    return JSON.parse(fileContents);
+  } catch (error) {
+    console.error('Error loading code files:', error);
+    return {};
+  }
+}
 
 interface PageProps {
   params: {
@@ -69,6 +85,7 @@ export default async function ProjectPage({ params }: PageProps) {
   const decodedFilename = decodeURIComponent(params.filename);
   
   // Get the file content from the pre-generated JSON
+  const codeFiles = await getCodeFiles();
   const content = codeFiles[decodedFilename];
   
   // If file not found, return 404

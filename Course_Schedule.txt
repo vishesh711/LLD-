@@ -1,0 +1,44 @@
+# Course_Schedule.txt - Topological Sort Implementation Explanation
+
+## Overview
+The Course_Schedule.py file implements a course scheduling system using topological sorting, which is a common algorithm for dependency resolution. This problem appears frequently in LLD interviews, as it tests your understanding of graph algorithms, dependency management, and cycle detection.
+
+## Key Components
+
+1. **Course Class**:
+   - Represents a course with a unique ID
+   - Contains a list of prerequisite course IDs
+   - Forms the nodes in our dependency graph
+
+2. **CourseScheduler Class**:
+   - Maintains a graph of course dependencies
+   - Implements topological sorting using Depth-First Search (DFS)
+   - Detects cycles in the dependency graph (which would make a valid schedule impossible)
+   - Provides a method to find a valid course order
+
+3. **Topological Sort Implementation**:
+   - Uses DFS to traverse the dependency graph
+   - Tracks visited and currently-visiting nodes to detect cycles
+   - Builds the result order by adding courses after their prerequisites
+   - Returns an empty list if a cycle is detected (impossible schedule)
+
+## Data Structures and Algorithms Used
+- **Directed Graph**: Represents course dependencies
+- **Depth-First Search**: Traverses the graph
+- **Topological Sorting**: Orders elements based on dependencies
+- **Cycle Detection**: Identifies impossible schedules
+
+## Why This Appears in LLD Interviews
+- Tests your understanding of graph algorithms
+- Evaluates your ability to handle dependency relationships
+- Assesses your knowledge of cycle detection
+- Examines your approach to designing a practical scheduling system
+- Verifies your understanding of time and space complexity
+
+## Interview Tips
+- Be prepared to explain the time complexity (O(V+E) where V=vertices/courses, E=edges/prerequisites)
+- Discuss alternative implementations (Kahn's algorithm using BFS)
+- Consider how you would handle additional constraints (time slots, room availability)
+- Be ready to optimize the solution for large numbers of courses
+- Explain how you would handle real-world course scheduling challenges
+- Discuss how you would implement course recommendations based on this algorithm 

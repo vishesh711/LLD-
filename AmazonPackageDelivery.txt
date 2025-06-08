@@ -1,0 +1,54 @@
+# AmazonPackageDelivery.txt - Locker System Design Explanation
+
+## Overview
+The AmazonPackageDelivery.py file implements an Amazon-style package locker system, where packages can be delivered to lockers of appropriate sizes and picked up by customers using unique codes. This is a highly relevant LLD (Low-Level Design) interview problem, especially for Amazon, as it models one of their actual services.
+
+## Key Components
+
+1. **Locker Class**:
+   - Represents a physical locker with ID and size attributes
+   - Tracks occupancy state (empty or containing a package)
+   - Provides methods to occupy and release the locker
+
+2. **Package Class**:
+   - Models a package with its ID, dimensions, and pickup code
+   - Tracks which locker it's assigned to
+   - Links the physical package to the system representation
+
+3. **LockerManager Class**:
+   - Central orchestrator for the locker system
+   - Maintains collections of lockers categorized by size
+   - Implements the locker allocation algorithm based on package dimensions
+   - Generates unique pickup codes
+   - Manages the relationship between packages and lockers
+
+4. **UserInterface Class**:
+   - Handles customer interactions for package pickup
+   - Verifies pickup codes and processes package retrieval
+   - Provides feedback on pickup success or failure
+
+5. **DeliveryInterface Class**:
+   - Handles delivery personnel interactions
+   - Processes new package placement requests
+   - Allocates appropriate lockers for packages
+
+## Design Patterns and Principles Used
+- **Singleton Pattern**: LockerManager is a single instance shared by interfaces
+- **Strategy Pattern**: Allocation strategy for finding the right locker size
+- **Facade Pattern**: UserInterface and DeliveryInterface provide simplified access to the system
+- **Single Responsibility Principle**: Each class has a specific focused role
+
+## Why This Appears in LLD Interviews
+- Tests your ability to model a real-world Amazon service
+- Evaluates your approach to resource allocation problems
+- Assesses your understanding of multiple interacting components
+- Examines your ability to design secure yet user-friendly systems
+- Verifies your knowledge of object-oriented design principles
+
+## Interview Tips
+- Be prepared to discuss how you would handle edge cases (all lockers full, wrong size lockers)
+- Consider how you would implement locker reservation or time-limited storage
+- Discuss how you would scale this system for multiple locker locations
+- Be ready to explain security considerations for the pickup code system
+- Consider how you would optimize the locker allocation algorithm
+- Explain how you would implement analytics and monitoring for the system 

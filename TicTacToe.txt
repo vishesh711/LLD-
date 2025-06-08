@@ -1,0 +1,40 @@
+# TicTacToe.txt - Game System Design Explanation
+
+## Overview
+The TicTacToe.py file implements a console-based Tic-Tac-Toe game. This is a common LLD (Low-Level Design) interview problem that tests your understanding of class design, game state management, and turn-based mechanics.
+
+## Key Components
+
+1. **Board Class**:
+   - Manages the game grid (3x3)
+   - Handles display of the board
+   - Provides methods for making moves and checking win conditions
+   - Checks for valid moves and board state (full/winner)
+
+2. **Player Class**:
+   - Represents a player with their symbol (X or O)
+   - Handles player input for making moves
+
+3. **Game Class**:
+   - Orchestrates the game flow
+   - Manages player turns
+   - Handles game state transitions
+   - Determines win/draw conditions
+
+## Design Patterns and Principles Used
+- **Single Responsibility Principle**: Each class has a specific role
+- **State Pattern**: The game tracks and manages different states (player turn, win, draw)
+- **Model-View-Controller (MVC)**: Separation between game logic (model), display (view), and input handling (controller)
+
+## Why This Appears in LLD Interviews
+- Tests your ability to design a system with multiple interacting components
+- Evaluates your approach to state management
+- Assesses your understanding of game logic and rules enforcement
+- Examines your ability to handle user input and validation
+
+## Interview Tips
+- Be prepared to discuss how you would extend the game (e.g., larger board, different win conditions)
+- Consider how you would implement an AI player
+- Discuss how you would add networking for multiplayer
+- Be ready to explain how you'd handle edge cases (invalid inputs, unexpected state changes)
+- Consider how you would optimize the win-checking algorithm for larger boards 

@@ -1,0 +1,54 @@
+# AmazonMusic.txt - Music Streaming Service Design Explanation
+
+## Overview
+The AmazonMusic.py file implements a simplified version of a music streaming service like Amazon Music. This design showcases class relationships, singleton patterns, and media player functionality - all highly relevant for an Amazon LLD (Low-Level Design) interview.
+
+## Key Components
+
+1. **Song Class**:
+   - Represents a music track with title, artist, and media path
+   - Encapsulates playback functionality for individual songs
+   - Forms the basic content unit of the system
+
+2. **SongLibrary Class**:
+   - Implemented as a singleton to ensure a single source of truth
+   - Maintains the master collection of all available songs
+   - Provides methods to add and retrieve songs
+   - Serves as the central repository for music content
+
+3. **Playlist Class**:
+   - Represents a user-created collection of songs
+   - Allows sequential playback of multiple songs
+   - Verifies songs exist in the library before adding them
+
+4. **User Class**:
+   - Represents a service user with a unique username
+   - Manages user-specific playlists
+   - Provides methods to create playlists and add songs to them
+
+5. **MusicPlayer Class**:
+   - Handles the actual media playback functionality
+   - Maintains playback state (playing, paused)
+   - Implements player controls (play, pause, skip)
+   - Provides special features like shuffle
+
+## Design Patterns and Principles Used
+- **Singleton Pattern**: SongLibrary ensures a single instance across the application
+- **Composition**: Users have playlists, playlists have songs
+- **State Pattern**: MusicPlayer manages and transitions between playback states
+- **Repository Pattern**: SongLibrary acts as a central repository for songs
+
+## Why This Appears in LLD Interviews
+- Tests your ability to model a real Amazon service
+- Evaluates your understanding of media playback systems
+- Assesses your knowledge of user content management
+- Examines your approach to designing user-facing features
+- Verifies your understanding of object-oriented design principles
+
+## Interview Tips
+- Be prepared to discuss how you would implement more advanced features (recommendations, radio)
+- Consider how you would handle user authentication and permissions
+- Discuss how you would implement offline mode and local storage
+- Be ready to explain how you would scale this system for millions of songs and users
+- Consider how you would handle concurrency (multiple devices playing simultaneously)
+- Explain how you would implement analytics for user listening habits 

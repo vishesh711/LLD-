@@ -1,0 +1,32 @@
+# UI.txt - View Hierarchy System Explanation
+
+## Overview
+The UI.py file implements a simple View Hierarchy system similar to what is used in UI frameworks like Android or iOS. This is a classic LLD (Low-Level Design) interview problem that tests your understanding of tree structures and recursive traversal algorithms.
+
+## Key Components
+
+1. **View Class**:
+   - Represents a UI component with a unique ID
+   - Contains child views (forming a tree structure)
+   - Has methods to add child views
+
+2. **find_view_by_id Function**:
+   - Implements a recursive tree traversal algorithm to find a view by its ID
+   - Uses depth-first search (DFS) to traverse the view hierarchy
+   - Returns the view if found, otherwise returns None
+
+## Design Patterns Used
+- **Composite Pattern**: Views can contain other views, creating a tree-like structure
+- **Recursive Tree Traversal**: Used for searching through the view hierarchy
+
+## Why This Appears in LLD Interviews
+- Tests your ability to model hierarchical relationships
+- Assesses your understanding of tree data structures
+- Evaluates your knowledge of recursive algorithms
+- Examines your approach to designing a common UI component system
+
+## Interview Tips
+- Be prepared to explain the time and space complexity of the traversal algorithm (O(n) where n is the number of views)
+- Discuss potential optimizations like caching or indexing for faster lookups
+- Consider edge cases: empty views, duplicate IDs, deep hierarchies
+- Be ready to extend the design to include more UI functionality like event handling or styling 

@@ -1,0 +1,43 @@
+# Pizza.txt - Decorator Pattern Design Explanation
+
+## Overview
+The Pizza.py file implements a pizza ordering system using the Decorator design pattern. This pattern allows for dynamic addition of toppings to a base pizza while maintaining a consistent interface. It's an excellent example of how to implement flexible object composition at runtime.
+
+## Key Components
+
+1. **Pizza Abstract Base Class**:
+   - Defines the interface with abstract methods: get_description() and get_cost()
+   - All concrete pizzas and decorators must implement these methods
+
+2. **ThinCrustPizza Class**:
+   - Concrete component implementing the Pizza interface
+   - Handles size-based pricing logic
+   - Provides the base object that will be decorated
+
+3. **PizzaDecorator Abstract Class**:
+   - Maintains a reference to the wrapped Pizza object
+   - Implements the Pizza interface by delegating to the wrapped object
+   - Serves as the base class for all concrete decorators
+
+4. **Cheese Class**:
+   - Concrete decorator that adds functionality (cheese topping)
+   - Extends the description and increases the cost
+   - Maintains the same interface as the Pizza class
+
+## Design Patterns Used
+- **Decorator Pattern**: Dynamically adds responsibilities to objects without modifying their structure
+- **Abstract Base Class**: Enforces interface contracts through abstract methods
+- **Open/Closed Principle**: System is open for extension (new toppings) but closed for modification
+
+## Why This Appears in LLD Interviews
+- Tests your understanding of object-oriented design principles
+- Evaluates your knowledge of design patterns and when to apply them
+- Assesses your ability to create flexible and extensible systems
+- Examines your approach to composing objects at runtime
+
+## Interview Tips
+- Be prepared to explain the difference between inheritance and decoration
+- Discuss the advantages of composition over inheritance
+- Consider how you would extend the system with new pizza types or toppings
+- Be ready to implement alternative design approaches (Factory, Builder, etc.)
+- Explain how you would handle complex pricing rules or combination discounts 

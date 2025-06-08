@@ -1,0 +1,123 @@
+# Low-Level Design (LLD) Interviews at Amazon: A Comprehensive Guide
+
+## What is a Low-Level Design (LLD) Interview?
+
+LLD interviews focus on your ability to design the internal components, classes, and interactions of a software system. Unlike High-Level Design (HLD) which deals with system architecture, databases, and servers, LLD is concerned with:
+
+- Class and object design
+- Data structures and algorithms
+- Design patterns
+- Object-oriented principles
+- Code organization and relationships
+
+## What Amazon Looks For in LLD Interviews
+
+1. **Object-Oriented Design Skills**: 
+   - Proper class hierarchies and relationships
+   - Encapsulation, inheritance, polymorphism, abstraction
+   - Interface vs implementation separation
+
+2. **Design Pattern Knowledge**:
+   - Recognizing when to apply common patterns (Singleton, Factory, Observer, Strategy, etc.)
+   - Understanding the tradeoffs between different patterns
+   - Implementing patterns correctly in code
+
+3. **SOLID Principles**:
+   - Single Responsibility Principle
+   - Open/Closed Principle
+   - Liskov Substitution Principle
+   - Interface Segregation Principle
+   - Dependency Inversion Principle
+
+4. **Clean, Maintainable Code**:
+   - Readable class and method names
+   - Proper error handling
+   - Appropriate comments
+   - Well-organized code structure
+
+5. **Problem-Solving Approach**:
+   - How you break down complex problems
+   - Your thought process and design decisions
+   - Ability to handle requirements changes
+
+## Common LLD Interview Questions at Amazon
+
+The examples in this repository represent common LLD interview questions at Amazon. They typically fall into these categories:
+
+1. **Real-World Object Modeling**:
+   - Parking Lot (ParkingLot.py)
+   - Amazon Locker System (AmazonPackageDelivery.py)
+
+2. **Game Design**:
+   - Tic-Tac-Toe (TicTacToe.py)
+   - Blackjack (Blackjack_Game.py)
+
+3. **Amazon Service Modeling**:
+   - Music Streaming Service (AmazonMusic.py)
+   - Package Delivery System (AmazonPackageDelivery.py)
+
+4. **Common Software Components**:
+   - Rate Limiter (Rate Limiter.py)
+   - File System (LinuxFileSystem.py)
+   - UI Component Hierarchy (UI.py)
+
+5. **Algorithmic System Design**:
+   - Course Scheduler with prerequisites (Course_Schedule.py)
+
+## General Approach for LLD Interviews
+
+1. **Clarify Requirements** (2-3 minutes):
+   - Ask questions to understand the exact problem scope
+   - Identify core functionality vs. "nice-to-have" features
+   - Establish constraints and assumptions
+
+2. **Define Core Classes and Relationships** (5-7 minutes):
+   - Identify the main entities/objects
+   - Define their attributes and behaviors
+   - Establish relationships (has-a, is-a, uses)
+   - Draw a simple class diagram if possible
+
+3. **Apply Design Patterns** (3-5 minutes):
+   - Identify appropriate design patterns
+   - Explain why they're suitable for this problem
+   - Modify your design to incorporate them
+
+4. **Implementation Details** (10-15 minutes):
+   - Write pseudocode or actual code for key methods
+   - Focus on the most important classes and interactions
+   - Demonstrate understanding of language features and OOP concepts
+
+5. **Testing and Edge Cases** (2-3 minutes):
+   - Discuss how you would test your design
+   - Address potential edge cases and error conditions
+   - Propose enhancements or optimizations
+
+## Tips for Success
+
+1. **Practice, Practice, Practice**:
+   - Implement multiple designs from scratch
+   - Review and critique existing designs
+   - Study common design patterns and when to use them
+
+2. **Think Aloud**:
+   - Explain your thought process as you design
+   - Discuss tradeoffs between different approaches
+   - Show that you're considering multiple factors
+
+3. **Ask Clarifying Questions**:
+   - Don't make assumptions about requirements
+   - It's okay to ask for guidance or feedback
+   - Confirm your understanding before proceeding
+
+4. **Be Adaptable**:
+   - Requirements may change during the interview
+   - Be ready to modify your design accordingly
+   - Show that you can handle evolving requirements
+
+5. **Know Amazon's Leadership Principles**:
+   - Customer Obsession: How does your design benefit the end user?
+   - Ownership: How would you ensure reliability and quality?
+   - Invent and Simplify: Is your design elegant and maintainable?
+   - Dive Deep: Can you explain the details of your implementation?
+
+Remember, the interviewer is not just assessing your technical skills but also your problem-solving approach, communication abilities, and how you respond to feedback. Good luck with your Amazon SDE interview! 

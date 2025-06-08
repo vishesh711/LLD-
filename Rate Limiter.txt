@@ -1,0 +1,39 @@
+# Rate Limiter.txt - System Design Explanation
+
+## Overview
+The Rate Limiter.py file implements a sliding window rate limiting algorithm, which is used to control the rate of operations a user can perform in a given time window. This is a crucial component in many distributed systems and APIs to prevent abuse and ensure fair usage.
+
+## Key Components
+
+1. **RateLimiter Class**:
+   - Manages request limits per user within a specified time window
+   - Uses a sliding window approach for precise rate limiting
+   - Maintains a history of user requests using a deque (double-ended queue)
+
+2. **Key Methods**:
+   - `process_logs()`: Reads and processes log files to build request history
+   - `can_make_request()`: Checks if a user can make a request based on their recent activity
+   - Implements efficient cleanup of expired requests using the deque's popleft() operation
+
+## Data Structures Used
+- **Deque (collections.deque)**: Efficient for adding/removing from both ends with O(1) complexity
+- **Dictionary (user_requests)**: Maps users to their request histories for O(1) lookups
+
+## Why This Appears in LLD Interviews
+- Tests your understanding of rate limiting algorithms (crucial for API design)
+- Evaluates your ability to handle time-based operations
+- Assesses your knowledge of efficient data structures
+- Examines your approach to performance optimization in high-traffic systems
+
+## Design Considerations
+- **Sliding Window**: More accurate than fixed window counters
+- **Memory Efficiency**: Only stores necessary request data within the time window
+- **Time Complexity**: O(1) for checking if a request is allowed
+- **Space Complexity**: O(n) where n is the number of requests within the time window
+
+## Interview Tips
+- Be prepared to explain different rate limiting algorithms (token bucket, leaky bucket, fixed window)
+- Discuss distributed rate limiting challenges (race conditions, synchronization)
+- Consider how you would handle edge cases (clock skew, server restarts)
+- Explain how you would scale this solution for millions of users
+- Be ready to discuss persistence strategies for rate limit data 

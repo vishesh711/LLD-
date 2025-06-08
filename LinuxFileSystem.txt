@@ -1,0 +1,47 @@
+# LinuxFileSystem.txt - Tree-Based File System Design Explanation
+
+## Overview
+The LinuxFileSystem.py file implements a simplified in-memory file system similar to Unix/Linux. This is a classic LLD (Low-Level Design) interview problem that tests your understanding of tree data structures, path manipulation, and system design principles.
+
+## Key Components
+
+1. **Node Class**:
+   - Represents both files and directories
+   - Contains attributes for name, type (file/directory), and content
+   - For directories, maintains a dictionary of children (name -> Node)
+   - For files, stores the file content as a string
+
+2. **FileSystem Class**:
+   - Implements file system operations
+   - Uses a tree structure with the root directory at the top
+   - Provides methods for:
+     - Creating directories (mkdir)
+     - Creating files (create_file)
+     - Writing to files (write_file)
+     - Reading from files (read_file)
+     - Finding files/directories by name (find)
+
+3. **Path Management**:
+   - Parses paths using string manipulation
+   - Handles both absolute paths (starting with "/") and relative paths
+   - Traverses the file system tree based on path components
+
+## Design Patterns and Data Structures Used
+- **Composite Pattern**: Directories can contain files or other directories
+- **Tree Structure**: Hierarchical organization of files and directories
+- **Dictionary**: Efficient lookup of children by name
+
+## Why This Appears in LLD Interviews
+- Tests your understanding of tree data structures and traversal
+- Evaluates your ability to model hierarchical relationships
+- Assesses your knowledge of file system concepts
+- Examines your approach to path parsing and validation
+- Challenges you to handle edge cases in a complex system
+
+## Interview Tips
+- Be prepared to discuss time and space complexity of operations
+- Consider how you would implement file permissions and ownership
+- Discuss how you would handle concurrent access and locking
+- Be ready to extend the design for features like symbolic links or hard links
+- Explain how you would implement persistence (saving to disk)
+- Consider how you would optimize for large directories or deep hierarchies 
