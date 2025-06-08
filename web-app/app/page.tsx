@@ -64,7 +64,7 @@ export default function Home() {
         {projects.map((project) => (
           <Link 
             key={project.file}
-            href={`/projects/${encodeURIComponent(project.file)}`}
+            href={`/projects/${encodeURIComponent(project.file)}/`}
             className="group p-6 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors flex flex-col h-full"
           >
             <h2 className="text-xl font-semibold mb-2">{project.name}</h2>

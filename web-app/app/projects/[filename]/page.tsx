@@ -23,6 +23,9 @@ async function getCodeFiles(): Promise<CodeFiles> {
   }
 }
 
+// Enable static export for better performance
+export const dynamicParams = false;
+
 interface PageProps {
   params: {
     filename: string;
@@ -35,6 +38,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `LLD - ${decodedFilename}`,
     description: `Low Level Design implementation of ${decodedFilename}`,
   };
+}
+
+// Generate static paths for all projects
+export async function generateStaticParams() {
+  try {
+    const codeFiles = await getCodeFiles();
+    return Object.keys(codeFiles).map(filename => ({
+      filename: encodeURIComponent(filename)
+    }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
 }
 
 // Project descriptions to be displayed on the detail page
@@ -110,15 +126,15 @@ export default async function ProjectPage({ params }: PageProps) {
       
       <h1 className="text-3xl font-bold mb-4">{decodedFilename}</h1>
       
-      <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-6">
         <h2 className="text-xl font-semibold mb-2">About this Implementation</h2>
-        <p className="text-gray-700 mb-4">{projectInfo.description}</p>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">{projectInfo.description}</p>
         
         <div className="mt-4">
           <h3 className="text-lg font-medium mb-2">Key Concepts:</h3>
           <div className="flex flex-wrap gap-2">
             {projectInfo.concepts.map((concept, index) => (
-              <span key={index} className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+              <span key={index} className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-medium px-3 py-1 rounded-full">
                 {concept}
               </span>
             ))}

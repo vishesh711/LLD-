@@ -31,6 +31,19 @@ const nextConfig = {
   // Experimental features
   experimental: {
     serverComponentsExternalPackages: ['fs', 'path', 'fs/promises']
+  },
+
+  // Ensure proper trailingSlash behavior for clean URLs
+  trailingSlash: true,
+  
+  // Fix issues with dynamic routes
+  async rewrites() {
+    return [
+      {
+        source: '/projects/:filename*',
+        destination: '/projects/:filename*',
+      },
+    ];
   }
 };
 

@@ -13,6 +13,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://lld-gaxr1m7m3-visheshs-projects-b3b530c3.vercel.app'),
   title: {
     template: '%s | Low-Level Design Examples',
     default: 'Low-Level Design Examples',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     description: "A collection of object-oriented design implementations in Python",
     type: "website",
     locale: "en_US",
-    url: "https://your-deployed-url.vercel.app/",
+    url: "https://lld-gaxr1m7m3-visheshs-projects-b3b530c3.vercel.app/",
   },
   twitter: {
     card: "summary_large_image",
