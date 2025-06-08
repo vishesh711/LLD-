@@ -1,9 +1,12 @@
-import fs from 'node:fs';
 import path from 'path';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import CodeViewer from '../../components/CodeViewer';
+
+// Import the JSON file with a type assertion
+import codeFilesData from '../../data/code-files.json' assert { type: 'json' };
+const codeFiles = codeFilesData as Record<string, string>;
 
 interface PageProps {
   params: {
@@ -66,19 +69,12 @@ const projectDescriptions: Record<string, { description: string, concepts: strin
 export default async function ProjectPage({ params }: PageProps) {
   const decodedFilename = decodeURIComponent(params.filename);
   
-  let content = '';
-  try {
-    // Read the file from the public/code directory
-    const filePath = path.join(process.cwd(), 'public', 'code', decodedFilename);
-    content = fs.readFileSync(filePath, 'utf8');
-  } catch (error) {
-    // Fallback to parent directory for local development
-    try {
-      const parentFilePath = path.join(process.cwd(), '..', decodedFilename);
-      content = fs.readFileSync(parentFilePath, 'utf8');
-    } catch {
-      notFound();
-    }
+  // Get the file content from the pre-generated JSON
+  const content = codeFiles[decodedFilename];
+  
+  // If file not found, return 404
+  if (!content) {
+    notFound();
   }
 
   // Get project description if available
