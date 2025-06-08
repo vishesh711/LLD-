@@ -33,15 +33,16 @@ const nextConfig = {
     serverComponentsExternalPackages: ['fs', 'path', 'fs/promises']
   },
 
-  // Ensure proper trailingSlash behavior for clean URLs
-  trailingSlash: true,
+  // Clean URLs - consistent with Vercel config
+  trailingSlash: false,
+  cleanUrls: true,
   
-  // Fix issues with dynamic routes
+  // Handle dynamic routes
   async rewrites() {
     return [
       {
-        source: '/projects/:filename*',
-        destination: '/projects/:filename*',
+        source: '/projects/:filename',
+        destination: '/projects/:filename',
       },
     ];
   }

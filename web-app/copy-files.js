@@ -4,6 +4,7 @@ const path = require('path');
 // Source and destination directories
 const sourceDir = path.join(__dirname, '..');
 const destDir = path.join(__dirname, 'public', 'code');
+const publicDir = path.join(__dirname, 'public');
 
 // Create destination directory if it doesn't exist
 if (!fs.existsSync(destDir)) {
@@ -42,11 +43,23 @@ if (!fs.existsSync(jsonPath)) {
   fs.mkdirSync(jsonPath, { recursive: true });
 }
 
-// Write the JSON file
+// Write the JSON file to app/data directory
 fs.writeFileSync(
   path.join(jsonPath, 'code-files.json'), 
   JSON.stringify(fileContents, null, 2)
 );
-console.log('Generated code-files.json with all file contents');
 
+// Also write the JSON file to the public directory for client-side access
+fs.writeFileSync(
+  path.join(publicDir, 'code-files.json'), 
+  JSON.stringify(fileContents, null, 2)
+);
+
+// And write to the root directory as a third fallback
+fs.writeFileSync(
+  path.join(__dirname, 'code-files.json'), 
+  JSON.stringify(fileContents, null, 2)
+);
+
+console.log('Generated code-files.json with all file contents');
 console.log('All Python files have been copied successfully!'); 

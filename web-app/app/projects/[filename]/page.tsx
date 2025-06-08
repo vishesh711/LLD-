@@ -13,13 +13,45 @@ interface CodeFiles {
 // Function to get code files data
 async function getCodeFiles(): Promise<CodeFiles> {
   try {
-    // In development, read from JSON file if it exists
-    const filePath = path.join(process.cwd(), 'app', 'data', 'code-files.json');
-    const fileContents = await fs.readFile(filePath, 'utf8');
-    return JSON.parse(fileContents);
+    // Primary path - app/data directory in the build
+    const primaryPath = path.join(process.cwd(), 'app', 'data', 'code-files.json');
+    
+    try {
+      const fileContents = await fs.readFile(primaryPath, 'utf8');
+      return JSON.parse(fileContents);
+    } catch (primaryError) {
+      console.log('Primary path failed, trying fallback paths:', primaryError);
+      
+      // Fallback 1 - public directory
+      const fallbackPath1 = path.join(process.cwd(), 'public', 'code-files.json');
+      try {
+        const fallbackContents = await fs.readFile(fallbackPath1, 'utf8');
+        return JSON.parse(fallbackContents);
+      } catch (fallback1Error) {
+        console.log('Fallback 1 failed:', fallback1Error);
+        
+        // Fallback 2 - root directory
+        const fallbackPath2 = path.join(process.cwd(), 'code-files.json');
+        const fallbackContents2 = await fs.readFile(fallbackPath2, 'utf8');
+        return JSON.parse(fallbackContents2);
+      }
+    }
   } catch (error) {
     console.error('Error loading code files:', error);
-    return {};
+    
+    // Last resort - return a minimal embedded dataset for critical files
+    return {
+      'PakingLot.py': '# Parking Lot implementation...',
+      'AmazonPackageDelivery.py': '# Amazon Package Delivery implementation...',
+      'AmazonMusic.py': '# Amazon Music implementation...',
+      'Blackjack_Game.py': '# Blackjack Game implementation...',
+      'Course_Schedule.py': '# Course Schedule implementation...',
+      'LinuxFileSystem.py': '# Linux File System implementation...',
+      'UI.py': '# UI implementation...',
+      'Pizza.py': '# Pizza implementation...',
+      'Rate Limiter.py': '# Rate Limiter implementation...',
+      'TicTacToe.py': '# Tic Tac Toe implementation...'
+    };
   }
 }
 
